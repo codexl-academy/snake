@@ -1,1 +1,1 @@
-## Here we define the entities of the game (snake, fruit, etc)
+## Here we define the entities of the game (snake, fruit, board, etc)
