@@ -12,6 +12,7 @@ class TestSnake(TestCase):
     def test_move(self):
         self.snake.move()
         self.assertEqual(self.snake.position, (60, 50))
+        self.assertEqual(self.snake.body, [(60, 50), (50, 50), (40, 50), (30, 50)])
 
     def test_change_direction(self):
         self.snake.change_direction(Direction.UP)

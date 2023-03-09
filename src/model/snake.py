@@ -25,6 +25,7 @@ class Snake:
         return body
 
     def move(self):
+        """Updates the position of the head."""
         if self.direction == Direction.RIGHT:
             self.position = (self.position[0] + 10, self.position[1])
         elif self.direction == Direction.LEFT:
@@ -33,10 +34,15 @@ class Snake:
             self.position = (self.position[0], self.position[1] - 10)
         else:
             self.position = (self.position[0], self.position[1] + 10)
+        self._update_body()
 
-    def update_body(self):
-        """Implement update the body after every move."""
-        pass
+    def _update_body(self):
+        """Updates the positions of the body
+
+        This method can change when we take fruits into consideration.
+        """
+        self.body.insert(0, self.position)
+        self.body.pop()
 
     def grow(self):
         """Implement grow body after eating fruit."""
