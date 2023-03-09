@@ -1,36 +1,54 @@
 # Snake
 
-Snake Videogame made with Python.
-
-We should (probably) create a version of this [implementation](https://www.geeksforgeeks.org/snake-game-in-python-using-pygame-module/) from GeeksForGeeks.
+Esta es una implementación simple del clásico juego de la Serpiente (Snake Game) utilizando Python y la librería Pygame. El juego utiliza principios de programación orientada a objetos para crear los componentes y funcionalidades del juego.
 
 ---
 
-## Free Version
+## Requerimientos
 
-1. Install required packages. Probably just `pygame`.
-1. Import libraries and set initial dimensions of the game.
-1. Start an instance of the game with an empty rectangle.
-1. Initial position of the snake, size, generation of fruits.
-1. Score.
-1. Game over.
-1. Snake movement, fruit spawn logic, etc... This can be split probably.
-
-This is more or less the steps they follow on that tutorial. We should do something similar, but maybe a little bit less spaghetti. I would like to use Object-Oriented programming for this project.
+* Python 3.x
+* Pygame 2.x
 
 ---
 
-## Premium Version
+## Instalación
 
-1. Multiplayer.
-1. VS Computer Player.
-1. VS Optimal Computer Player (Graph Algorithms, Heuristics).
+1. Clonar el repositorio o descargar el archivo zip y extraerlo.
+2. Abrir la terminal o línea de comandos y navegar hasta el directorio que contiene los archivos del juego.
+3. Instalar los paquetes requeridos ejecutando el siguiente comando: `pip install -r requirements.txt`
+4. Ejecutar el juego ejecutando el siguiente comando: `python src/main.py`
 
 ---
 
-## Project Organization
+## Controles del Juego
 
-So far, I think something like this could suffice:
+* Usar las teclas de flechas para controlar el movimiento de la serpiente.
+* Presionar la barra espaciadora para pausar el juego.
+* Presionar la tecla 'q' para salir del juego.
 
-- A `src` folder with the final implementation. Subfolders will be created as needed.
-- A `chapters` (maybe a different name) folder with subfolders containing the content specific for one day. Each subfolder should have the code made from day 1 to the current day. Also, the explanatory text should be inside each subfolder as the corresponding text for that chapter.
+---  
+
+## Características del Juego
+
+* La serpiente crece en longitud cada vez que come comida.
+* El juego termina cuando la serpiente choca con una pared o con su propio cuerpo.
+* La puntuación aumenta en 10 cada vez que la serpiente come comida.
+* La velocidad del juego aumenta a medida que la longitud de la serpiente aumenta.
+
+---
+
+## Documentación
+
+Consulte el directorio `doc` para acceder a la documentación.
+
+---
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo `LICENSE` para más detalles.
+
+---
+
+## Agradecimientos
+
+Este juego está basado en el clásico juego de la Serpiente (Snake Game) y fue creado utilizando la librería Pygame.
