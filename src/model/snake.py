@@ -1,8 +1,20 @@
 from typing import Tuple, List
+from enum import Enum
+
+
+class Direction(Enum):
+    """Enum class representing directions."""
+
+    RIGHT = 0
+    LEFT = 1
+    UP = 2
+    DOWN = 3
 
 
 class Snake:
-    def __init__(self, position: Tuple[int, int], direction: str):
+    """Representation of the Snake entity."""
+
+    def __init__(self, position: Tuple[int, int], direction: Direction):
         self.position = position
         self.direction = direction
         self.body = self._create_body(position)
@@ -20,5 +32,18 @@ class Snake:
         """Implement update the body after every move."""
         pass
 
-    def change_direction(self, new_direction: str):
-        self.direction = new_direction
+    def grow(self):
+        """Implement grow body after eating fruit."""
+        pass
+
+    def change_direction(self, new_direction: Direction):
+        if not self._are_opposites(self.direction, new_direction):
+            self.direction = new_direction
+
+    def are_opposites(self, direction1: Direction, direction2: Direction):
+        return (
+            (direction1 == Direction.RIGHT and direction2 == Direction.LEFT)
+            or (direction1 == Direction.LEFT and direction2 == Direction.RIGHT)
+            or (direction1 == Direction.UP and direction2 == Direction.DOWN)
+            or (direction1 == Direction.DOWN and direction2 == Direction.UP)
+        )
