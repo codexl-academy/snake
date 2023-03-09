@@ -25,8 +25,14 @@ class Snake:
         return body
 
     def move(self):
-        """Implement move to the direction stored in `direction`."""
-        pass
+        if self.direction == Direction.RIGHT:
+            self.position = (self.position[0] + 10, self.position[1])
+        elif self.direction == Direction.LEFT:
+            self.position = (self.position[0] - 10, self.position[1])
+        elif self.direction == Direction.UP:
+            self.position = (self.position[0], self.position[1] - 10)
+        else:
+            self.position = (self.position[0], self.position[1] + 10)
 
     def update_body(self):
         """Implement update the body after every move."""
@@ -40,7 +46,7 @@ class Snake:
         if not self._are_opposites(self.direction, new_direction):
             self.direction = new_direction
 
-    def are_opposites(self, direction1: Direction, direction2: Direction):
+    def _are_opposites(self, direction1: Direction, direction2: Direction):
         return (
             (direction1 == Direction.RIGHT and direction2 == Direction.LEFT)
             or (direction1 == Direction.LEFT and direction2 == Direction.RIGHT)
