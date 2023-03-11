@@ -1,5 +1,5 @@
-from typing import Tuple, List
 from enum import Enum
+from typing import List, Tuple
 
 
 class Direction(Enum):
@@ -14,14 +14,18 @@ class Direction(Enum):
 class Snake:
     """Representation of the Snake entity."""
 
-    def __init__(self, position: Tuple[int, int], direction: Direction):
+    def __init__(
+        self, position: Tuple[int, int], direction: Direction, size: int
+    ) -> None:
         self.position = position
         self.direction = direction
-        self.body = self._create_body(position)
+        self.body = self._create_body(position, size)
 
-    def _create_body(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
+    def _create_body(
+        self, position: Tuple[int, int], size: int
+    ) -> List[Tuple[int, int]]:
         body = [position]
-        body.extend((body[i - 1][0] - 10, position[1]) for i in range(1, 4))
+        body.extend((body[i - 1][0] - 10, position[1]) for i in range(1, size))
         return body
 
     def move(self):
@@ -34,19 +38,15 @@ class Snake:
             self.position = (self.position[0], self.position[1] - 10)
         else:
             self.position = (self.position[0], self.position[1] + 10)
-        self._update_body()
+        self._grow()
 
-    def _update_body(self):
-        """Updates the positions of the body
-
-        This method can change when we take fruits into consideration.
-        """
+    def _grow(self):
+        """Inserts the position of the head as the front position in the body."""
         self.body.insert(0, self.position)
-        self.body.pop()
 
-    def grow(self):
-        """Implement grow body after eating fruit."""
-        pass
+    def trim(self):
+        """Removes the tail of the body."""
+        self.body.pop()
 
     def change_direction(self, new_direction: Direction):
         if not self._are_opposites(self.direction, new_direction):

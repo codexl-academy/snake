@@ -1,11 +1,9 @@
+from dataclasses import dataclass
 from typing import Tuple
 
 
+@dataclass
 class Fruit:
-    """Representation of the Fruit entity.
+    """Representation of the Fruit entity."""
 
-    Probably best to use `dataclass` here.
-    """
-
-    def __init__(self, position: Tuple[int, int]):
-        self.position = position
+    position: Tuple[int, int]
