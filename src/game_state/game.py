@@ -1,4 +1,12 @@
+"""Module that handles the Game entities.
+
+As of now, it consist of a `Game` class handling the
+main cycle and events of the game.
+"""
+
+
 import random
+import sys
 import time
 
 import pygame
@@ -9,16 +17,14 @@ from renderer.render import Color, Renderer
 
 
 class Game:
-
-    snake_speed = 15
-
-    # Window size
-    window_x = 720
-    window_y = 480
+    """Class representing the Game entity."""
 
     def __init__(self):
         pygame.init()
         pygame.display.set_caption("Snake")
+        self.snake_speed = 15
+        self.window_x = 720
+        self.window_y = 480
         self.game_window = pygame.display.set_mode((self.window_x, self.window_y))
         self.fps = pygame.time.Clock()
 
@@ -30,9 +36,14 @@ class Game:
             )
         )
         self.score = 0
-        self.fruit_spawn = True
 
-    def touch_boundaries(self) -> bool:
+    def _touch_boundaries(self) -> bool:
+        """Checks whether the snake's head is touching the
+        boundaries of the board.
+
+        Returns:
+            bool: True in case the snake's head is touching the boundaries, False otherwise.
+        """
         return (
             self.snake.position[0] < 0
             or self.snake.position[0] > self.window_x - 10
@@ -40,13 +51,35 @@ class Game:
             or self.snake.position[1] > self.window_y - 10
         )
 
-    def touch_body(self) -> bool:
+    def _touch_body(self) -> bool:
+        """Checks wheter the snake's head is touching its body.
+
+        Returns:
+            bool: True in case the snake's head is touching its body, False otherwise.
+        """
         return any(self.snake.position == block for block in self.snake.body[1:])
 
     def game_over(self):
-        return self.touch_boundaries() or self.touch_body()
+        """Checks for the conditions of Game Over.
+
+        The conditions are:
+            * Snake's head touches boundaries.
+            * Snake's head touches body.
+
+        Returns:
+            bool: True if any condition is met, False otherwise.
+        """
+        return self._touch_boundaries() or self._touch_body()
 
     def get_next_direction(self):
+        """Listens to KEYDOWN events to recognize
+        direction changes.
+
+        If no KEYDOWN event occurs, the direction doesn't change.
+
+        Returns:
+            Direction: The new direction of the snake.
+        """
         change_to = self.snake.direction
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -60,35 +93,35 @@ class Game:
                     change_to = Direction.RIGHT
         return change_to
 
-    def run(self):
-        while True:
+    def _generate_fruit(self):
+        """Generate new fruit."""
+        self.fruit = Fruit(
+            position=(
+                random.randrange(1, (self.window_x // 10)) * 10,
+                random.randrange(1, (self.window_y // 10)) * 10,
+            )
+        )
 
-            self.snake.change_direction(self.get_next_direction())
+    def run(self):
+        """Runs the main cycle of the Game."""
+        while True:
+            new_direction = self.get_next_direction()
+            self.snake.change_direction(new_direction)
             self.snake.move()
 
             if self.snake.position == self.fruit.position:
                 self.score += 10
-                self.fruit_spawn = False
+                self._generate_fruit()
             else:
                 self.snake.trim()
 
-            if not self.fruit_spawn:
-                self.fruit = Fruit(
-                    position=(
-                        random.randrange(1, (self.window_x // 10)) * 10,
-                        random.randrange(1, (self.window_y // 10)) * 10,
-                    )
-                )
-
-            self.fruit_spawn = True
-            self.game_window.fill(Color.BLACK.value)
-
             Renderer.render_game_state(
-                self.snake,
-                self.fruit,
+                self.snake.body,
+                self.fruit.position,
                 self.game_window,
                 Color.GREEN.value,
                 Color.WHITE.value,
+                Color.BLACK.value,
             )
 
             if self.game_over():
@@ -103,7 +136,7 @@ class Game:
                 )
                 time.sleep(2)
                 pygame.quit()
-                quit()
+                sys.exit()
 
             Renderer.render_score(
                 self.score, self.game_window, Color.WHITE.value, "times new roman", 20

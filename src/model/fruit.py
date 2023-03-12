@@ -1,3 +1,6 @@
+"""Module with the representation of the Fruit entity."""
+
+
 from dataclasses import dataclass
 from typing import Tuple
 
