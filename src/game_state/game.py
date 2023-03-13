@@ -102,6 +102,9 @@ class Game:
             )
         )
 
+    def _increase_game_speed(self):
+        self.snake_speed += 1
+
     def run(self):
         """Runs the main cycle of the Game."""
         while True:
@@ -112,6 +115,7 @@ class Game:
             if self.snake.position == self.fruit.position:
                 self.score += 10
                 self._generate_fruit()
+                self._increase_game_speed()
             else:
                 self.snake.trim()
 
