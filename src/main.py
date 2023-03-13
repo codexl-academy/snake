@@ -1,1 +1,6 @@
-## Here we'll run the main cycle of the game
+from game_state.game import Game
+
+if __name__ == "__main__":
+
+    game = Game()
+    game.run()
