@@ -6,8 +6,8 @@ Esta es una implementación simple del clásico juego de la Serpiente (Snake Gam
 
 ## Requerimientos
 
-* Python 3.x
-* Pygame 2.x
+- Python 3.x
+- Pygame 2.x
 
 ---
 
@@ -22,18 +22,18 @@ Esta es una implementación simple del clásico juego de la Serpiente (Snake Gam
 
 ## Controles del Juego
 
-* Usar las teclas de flechas para controlar el movimiento de la serpiente.
-* Presionar la barra espaciadora para pausar el juego.
-* Presionar la tecla 'q' para salir del juego.
+- Usar las teclas de flechas para controlar el movimiento de la serpiente.
+- Presionar la <kbd>barra espaciadora</kbd> para pausar el juego.
+- Presionar la tecla <kbd>q</kbd> para salir del juego.
 
----  
+---
 
 ## Características del Juego
 
-* La serpiente crece en longitud cada vez que come comida.
-* El juego termina cuando la serpiente choca con una pared o con su propio cuerpo.
-* La puntuación aumenta en 10 cada vez que la serpiente come comida.
-* La velocidad del juego aumenta a medida que la longitud de la serpiente aumenta.
+- La serpiente crece en longitud cada vez que come comida.
+- El juego termina cuando la serpiente choca con una pared o con su propio cuerpo.
+- La puntuación aumenta en 10 cada vez que la serpiente come comida.
+- La velocidad del juego aumenta a medida que la longitud de la serpiente aumenta.
 
 ---
 
