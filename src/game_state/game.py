@@ -36,6 +36,7 @@ class Game:
             )
         )
         self.score = 0
+        self.paused = False
 
     def _touch_boundaries(self) -> bool:
         """Checks whether the snake's head is touching the
@@ -71,7 +72,7 @@ class Game:
         """
         return self._touch_boundaries() or self._touch_body()
 
-    def get_next_direction(self):
+    def get_user_input(self):
         """Listens to KEYDOWN events to recognize
         direction changes.
 
@@ -91,6 +92,11 @@ class Game:
                     change_to = Direction.LEFT
                 if event.key == pygame.K_RIGHT:
                     change_to = Direction.RIGHT
+                if event.key == pygame.K_SPACE:
+                    self.paused = not self.paused
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    sys.exit()
         return change_to
 
     def _generate_fruit(self):
@@ -102,16 +108,24 @@ class Game:
             )
         )
 
+    def _increase_game_speed(self):
+        self.snake_speed += 1
+
     def run(self):
         """Runs the main cycle of the Game."""
         while True:
-            new_direction = self.get_next_direction()
+            new_direction = self.get_user_input()
+
+            if self.paused:
+                continue
+
             self.snake.change_direction(new_direction)
             self.snake.move()
 
             if self.snake.position == self.fruit.position:
                 self.score += 10
                 self._generate_fruit()
+                self._increase_game_speed()
             else:
                 self.snake.trim()
 
