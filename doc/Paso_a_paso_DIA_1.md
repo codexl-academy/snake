@@ -1,6 +1,6 @@
 # Paso a Paso: Día 1
 
-A través de esta serie de tutoriales escritos construiremos juntos el videojuego Snake en Python desde cero. No importa tu nivel de experiencia con Python, te llevaremos paso a paso y te explicaremos todo con lujo de detalles cada línea de código del proyecto. Si te parece empezamos ya con el primer día de código.
+A través de esta serie de tutoriales escritos construiremos juntos el videojuego Snake en Python desde cero. No importa tu nivel de experiencia con Python, te llevaremos paso a paso y te explicaremos con lujo de detalles cada línea de código del proyecto. Si te parece empezamos ya con el primer día de código.
 
 ## Instalación de las herramientas necesarias
 
@@ -32,7 +32,7 @@ Recapitulando, hemos instalado `Python 3`, `pip`, un editor para programar (en n
 Entrando en la parte interesante, lo primero que debemos hacer es crear el directorio donde vamos a crear nuestro proyecto. Crea un directorio llamado `snake` en tu ordenador. Una vez creado, agrega dentro otros dos directorios.
 
 * **src:** La abreviatura de **source**, que en inglés quiere decir **fuente**. Usualmente los directorios con nombre **src** contienen el código fuente del proyecto. En nuestro caso, aquí es donde agregaremos todos los archivos Python para implementar nuestro videojuego.
-* **tests** Las pruebas automáticas son un eslabón fundamental en el desarrollo de software en nuesros días. Para nosotros sería un verdadero sacrilegio crear un proyecto sin agregar pruebas. Es por eso que estas pruebas forman parte de este tutorial. Usualmente los archivos que contienen las pruebas de un proyecto se guardan en un directorio llamado `tests` o `test`.
+* **tests:** Las pruebas automáticas son un eslabón fundamental en el desarrollo de software en nuestros días. Para nosotros sería un verdadero sacrilegio crear un proyecto sin agregar pruebas. Es por eso que estas pruebas forman parte de este tutorial. Usualmente los archivos que contienen las pruebas de un proyecto se guardan en un directorio llamado `tests` o `test`.
 
 Notarás que en [nuestro repositorio](https://github.com/codexl-academy/snake) agregamos otros directorios y archivos extras pero no los vamos a añadir a esta implementación. Estos archivos extras controlan otras cosas como la licencia para el uso del software, las instrucciones básicas para usar el proyecto, las bibliotecas requeridas y otros relacionados con el control de versiones. Nada de esto interviene directamente en nuestro videojuego así que concentrémonos en nuestra implementación.
 
@@ -57,7 +57,7 @@ snake
 |-- tests (directorio vacío)
 ```
 
-Como habrás notado, tenemos muchos directorios vacíos que ya iremos llenando poco a poco. Dejemos hasta aquí nuestro primer día de proyecto. Durante este día hemos instalado las herramientas necesarias para crear nuestro videojuego **Snake** en Python. Luego hemos creado el directorio del proyecto y los subdirectorios necesarios para trabajar organizadamente. Esta organización es muy común en todo tipo de proyectos en el mundo real. Este tutorial pretende ser un ejemplo de buenas prácticas y organización para iniciarte en el buen camino de la programación :smiley:
+Como habrás notado, tenemos muchos directorios vacíos que ya iremos llenando poco a poco. Dejemos hasta aquí nuestro primer día de proyecto. Durante este día hemos instalado las herramientas necesarias para crear nuestro videojuego **Snake** en Python. Luego hemos creado el directorio del proyecto y los subdirectorios necesarios para trabajar organizadamente. Esta organización es muy común en todo tipo de proyectos en el mundo real. Este tutorial pretende ser un ejemplo de buenas prácticas y organización para iniciarte en el buen camino de la programación :smiley:.
 
 En el siguiente día estaremos conociendo un poco sobre módulos de Python, Programación Orientada a Objetos, creación de clases de Python y las entidades de nuestro juego. Escribiremos nuestras primeras líneas de código y estaremos más cerca de haber creado nuestro proyecto.
 
