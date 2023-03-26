@@ -6,7 +6,7 @@ Comenzamos el día dos de creación de nuestro videojuego Snake :snake:. Hoy esc
 
 Los lenguajes de programación que usamos comúnmente son muy genéricos, es decir, están hechos para que puedas programar cualquier programa. Si queremos programar un software para llevar las finanzas de una empresa podemos usar Python, pero si queremos crear un sitio de citas online... ¡también podemos usar Python! Este lenguaje solamente tiene un pequeño conjunto de palabras reservadas y reglas concretas que definen qué es un programa válido en Python. Con esos pequeños bloques podemos construir casi cualquier cosa.
 
-Esto es una gran fortaleza de los lenguajes de programación que tenemos hoy en día pero también nos puede traer problemas. En el mundo de las finanzas, por ejemplo, trabajamos con *pagos*, *cobros*, *deudas*, *inventarios*, etc. Por otra parte, en sitios de citas online trabajaríamos con *perfiles de usuarios*, *gustos personales*, *compatibilidad entre personas*, etc. Parecen dos universos totalmente distintos y, sin embargo ambos los programamos en ¡el mismo lenguaje! :exploding_head:.
+Esto es una gran fortaleza de los lenguajes de programación que tenemos hoy en día pero también nos puede traer problemas. En el mundo de las finanzas, por ejemplo, trabajamos con *pagos*, *cobros*, *deudas*, *inventarios*, etc. Por otra parte, en sitios de citas online trabajaríamos con *perfiles de usuarios*, *gustos personales*, *compatibilidad entre personas*, etc. Parecen dos universos totalmente distintos y, sin embargo, ambos los programamos en ¡el mismo lenguaje! :exploding_head:.
 
 Pero ¿cómo distinguir estos dos universos tan diferentes? ¿Cómo puedo **hablar los idiomas** de cada uno si ambos los hago en el mismo lenguaje de programación?
 
@@ -16,7 +16,7 @@ En nuestro videojuego vamos a usar la POO también, por lo que estaremos trabaja
 
 ## Clases en Python
 
-Un concepto central en la POO es el de **clase**. Las clases son una plantilla para crear objetos. Por ejemplo, si decimos que la clase **Persona** tiene un nombre, una edad y un estado civil, entonces todas las personas de nuestro software tendrán estas (y solo estas) características. Veamos cómo crear clases en Python y póngamonos manos a la obra :rocket:.
+Un concepto central en la POO es el de **clase**. Las clases son una plantilla para crear objetos. Por ejemplo, si decimos que la clase **Persona** tiene un nombre, una edad y un estado civil, entonces todas las personas de nuestro software tendrán estas (y solo estas) características. Veamos cómo crear clases en Python y pongámonos manos a la obra :rocket:.
 
 ### Primeras clases en Python
 
@@ -26,7 +26,7 @@ Los objetos de nuestro proyecto los definiremos dentro del directorio `src/model
 
 Comencemos por definir la clase `Fruit`. Pensemos, ¿qué es lo que nos interesa del objeto fruta en el juego? En programación debemos ser minimalistas, abstraernos de todo lo que no sea fundamental y extraer la esencia de cada componente de nuestro software. En este caso, de una fruta no nos interesa nada más que su posición en nuestro espacio de juego. Ten en mente que ahora mismo no nos estamos preocupando de cómo vamos a representar esa fruta en el videojuego, sino que estamos construyendo la lógica de nuestro juego, los fundamentos. Y esos fundamentos no incluyen la experiencia del usuario, sino las reglas y la evolución del sistema que describe el juego. Por tanto vamos a definir la clase `Fruit` como sigue:
 
-Archivo **src/model/fruit.py**
+Archivo **src/model/fruit.py**:
 ```python
 """Module with the representation of the Fruit entity."""
 
@@ -51,7 +51,7 @@ Lo siguiente que vemos en el código anterior son dos sentencias para importar u
 
 Ahora pasamos a definir la clase `Fruit` como tal. Primero declaramos que es una clase que solamente contendrá datos usando la línea `@dataclass`. Luego, en la siguiente línea definimos la clase, usamos la palabra reservada `class` para indicar que vamos a crear una clase y a continuación el nombre de la clase. Luego agregamos los dos puntos `:` para indicar que la línea termina y que a continuación escribiremos el cuerpo de la clase.
 
->**Nota :pen:** En Python podemos escribir el nombre de una clase de diferentes formas. Hay algunas reglas que debemos cumplir: no debe contener espacios, los únicos caracteres permitidos son letras, número y el caracter `_` y solamente pueden comenzar con una letra o con el caracter `_`. No obstante, nosotros usamos la notación conocida como **PascalCasing**. Comenzamos el nombre simepre con letra mayúscula seguida de letras minúsculas, cada nueva palabra en el nombre comienza con una letra mayúscula. Por ejemplo: `Fruit`, `Snake`, `SnakeFruit`, `AwesomeClassExampleInPascalCase`. Recuerda siempre usar nombres cortos y descriptivos para las clases que definas.
+>**Nota :pen:** En Python podemos escribir el nombre de una clase de diferentes formas. Hay algunas reglas que debemos cumplir: no debe contener espacios, los únicos caracteres permitidos son letras, número y el caracter `_` y solamente pueden comenzar con una letra o con el caracter `_`. No obstante, nosotros usamos la notación conocida como **PascalCasing**. Comenzamos el nombre siempre con letra mayúscula seguida de letras minúsculas, cada nueva palabra en el nombre comienza con una letra mayúscula. Por ejemplo: `Fruit`, `Snake`, `SnakeFruit`, `AwesomeClassExampleInPascalCase`. Recuerda siempre usar nombres cortos y descriptivos para las clases que definas.
 
 Lo siguiente es otro comentario aclarando qué contiene nuestra clase. Por último, añadimos el campo `position` que representa la posición de la fruta. Además aclaramos el tipo de datos de este campo. Analicemos esta línea:
 
@@ -67,7 +67,7 @@ Luego del nombre agregamos dos puntos `:` para indicar que vamos a definir el ti
 
 Ya tenemos nuestra clase `Fruit`, puedes copiar el código anterior en el archivo `src/model/fruit.py`. Ahora vamos a agregar también la clase `Snake`.
 
-Archivo **src/model/snake.py**
+Archivo **src/model/snake.py**:
 ```python
 """Module with the representation of the Snake entity
 along with some util classes such as Direction.
@@ -90,9 +90,7 @@ class Direction(Enum):
 class Snake:
     """Representation of the Snake entity."""
 
-    def __init__(
-        self, position: Tuple[int, int], direction: Direction, size: int
-    ) -> None:
+    def __init__(self, position: Tuple[int, int], direction: Direction, size: int):
         self.position = position
         self.direction = direction
         self.body = self._create_body(position, size)

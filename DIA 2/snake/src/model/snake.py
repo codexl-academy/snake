@@ -19,9 +19,7 @@ class Direction(Enum):
 class Snake:
     """Representation of the Snake entity."""
 
-    def __init__(
-        self, position: Tuple[int, int], direction: Direction, size: int
-    ) -> None:
+    def __init__(self, position: Tuple[int, int], direction: Direction, size: int):
         self.position = position
         self.direction = direction
         self.body = self._create_body(position, size)
