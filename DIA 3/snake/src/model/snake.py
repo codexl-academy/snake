@@ -24,7 +24,9 @@ class Snake:
         self.direction = direction
         self.body = self._create_body(position, size)
 
-    def _create_body(self, position: Tuple[int, int], size: int) -> List[Tuple[int, int]]:
+    def _create_body(
+        self, position: Tuple[int, int], size: int
+    ) -> List[Tuple[int, int]]:
         """Generates the body of the snake starting from the
         position of the head. The body will be of size `size`
         and the snake will be placed horizontally, facing right.

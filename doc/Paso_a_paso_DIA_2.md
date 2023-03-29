@@ -27,6 +27,7 @@ Los objetos de nuestro proyecto los definiremos dentro del directorio `src/model
 Comencemos por definir la clase `Fruit`. Pensemos, ¿qué es lo que nos interesa del objeto fruta en el juego? En programación debemos ser minimalistas, abstraernos de todo lo que no sea fundamental y extraer la esencia de cada componente de nuestro software. En este caso, de una fruta no nos interesa nada más que su posición en nuestro espacio de juego. Ten en mente que ahora mismo no nos estamos preocupando de cómo vamos a representar esa fruta en el videojuego, sino que estamos construyendo la lógica de nuestro juego, los fundamentos. Y esos fundamentos no incluyen la experiencia del usuario, sino las reglas y la evolución del sistema que describe el juego. Por tanto vamos a definir la clase `Fruit` como sigue:
 
 Archivo **src/model/fruit.py**:
+
 ```python
 """Module with the representation of the Fruit entity."""
 
@@ -68,6 +69,7 @@ Luego del nombre agregamos dos puntos `:` para indicar que vamos a definir el ti
 Ya tenemos nuestra clase `Fruit`, puedes copiar el código anterior en el archivo `src/model/fruit.py`. Ahora vamos a agregar también la clase `Snake`.
 
 Archivo **src/model/snake.py**:
+
 ```python
 """Module with the representation of the Snake entity
 along with some util classes such as Direction.
