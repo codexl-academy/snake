@@ -10,20 +10,21 @@ Lo primero que hay que hacer antes de comenzar cualquier proyecto (no solo de pr
 2. :book: El gestor de paquetes de Python `pip`
 3. :pen: Un editor para programar en Python con comodidad
 4. :video_game: La biblioteca `Pygame` para crear videojuegos en Python
+5. :syringe: La biblioteca `pytest` para crear pruebas para nuestro código
 
 Para los puntos del **1 al 3**, puedes consultar [este artículo de nuestro blog](https://blog.codexlacademy.com/guia-definitiva-para-instalar-python-pip-y-visual-studio-code) donde te explicamos cómo hacer estas instalaciones en los Sistemas Operativos más usados. Así que si no leíste este tutorial o no lo seguiste en su momento, apresúrate y complétalo antes de seguir con este proyecto. No te preocupes, te esperamos a que termines :wink:.
 
 ¿Ya estás de vuelta? ¡Genial, continuemos! :rocket:
 
-Para instalar `Pygame` solamente tienes que usar `pip`, no importa el sistema operativo de tu ordenador. Ejecuta el siguiente comando en una terminal.
+Para instalar `Pygame` y `pytest` solamente tienes que usar `pip`, no importa el sistema operativo de tu ordenador. Ejecuta el siguiente comando en una terminal.
 
 ```bash
-pip install pygame
+pip install pygame pytest
 ```
 
 >:warning: Es posible que necesites permisos de administrador en algunos casos o que debas usar `pip3` en lugar de `pip`.
 
-Recapitulando, hemos instalado `Python 3`, `pip`, un editor para programar (en nuestro tutorial recomendamos Visual Studio Code) y la biblioteca `Pygame` para crear videojuegos en Python.
+Recapitulando, hemos instalado `Python 3`, `pip`, un editor para programar (en nuestro tutorial recomendamos Visual Studio Code) y las bibliotecas `Pygame` y `pytest` para crear videojuegos y pruebas automatizadas respectivamente.
 
 ¡Listo! Ya tenemos todo lo necesario para comenzar con el proyecto.
 
