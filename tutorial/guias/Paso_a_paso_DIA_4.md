@@ -47,7 +47,7 @@ class TestFruit(TestCase):
 
 ```
 
-Analicemos el código anterior línea a línea. En la primera línea estamos importantdo la clase `TestCase` del módulo `unittest` que viene incluido en Python. Esta clase contiene lo necesario para crear pruebas automatizadas. Lo que haremos será heredar de ella y crear nuestras propias pruebas.
+Analicemos el código anterior línea a línea. En la primera línea estamos importando la clase `TestCase` del módulo `unittest` que viene incluido en Python. Esta clase contiene lo necesario para crear pruebas automatizadas. Lo que haremos será heredar de ella y crear nuestras propias pruebas.
 
 Luego importamos la clase que queremos probar. En este caso es la clase `Fruit` que recordemos que se encuentra en **src/model/fruit.py**.
 
@@ -96,6 +96,7 @@ class TestFruit(TestCase):
         self.assertEqual(self.fruit.position, (10, 10))
     
     def test_fail(self):
+        """This is a dummy test that always fail"""
         self.assertEqual(1, 2)
 
 ```
@@ -179,6 +180,7 @@ Vamos a agregar 5 pruebas en esta clase:
 5. Por último la función `test_change_direction_opposite` verifica que la dirección de la serpiente no cambie cuando se intenta moverla en la dirección opuesta. Como inicialmente la serpiente se mueve hacia la derecha, cambiar la posición hacia la izquierda no debiera tener ningún efecto y la serpiente debiera mantener su rumbo hacia la derecha :arrow_right:.
 
 >:warning: Ten siempre en cuenta que el método `setUp` se ejecuta antes de cada test por lo que cada test usa la misma serpiente como entrada.
+>**Nota :pen:** Es siempre buena práctica que nuestros tests not tomen en cuenta los resultados de tests anteriores. Esto es perjudicial porque crea dependencias innecesarias entre los tests y provoca que cuando hagamos cambios en uno, tengamos que hacer cambios en todos lo que dependen de él. Este tipo de enredos y complicaciones son las que tenemos que evitar al escribir tests. Recuerda que estos deben ser extremadamente sencillos y cortos.
 
 Si volvemos a ejecutar `pytest` obtenemos una salida como esta:
 
