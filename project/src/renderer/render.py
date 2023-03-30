@@ -32,7 +32,7 @@ class Renderer:
     @staticmethod
     def render_score(
         score: int, game_window, color: Color, font: str, font_size: int
-    ) -> None:
+    ):
         """Renders the score on the top left corner of the screen.
 
         Args:
@@ -56,7 +56,7 @@ class Renderer:
         color: Color,
         font: str,
         font_size: int,
-    ) -> None:
+    ):
         """Renders the `Game Over` state.
 
         Red-colored sign with the score in the middle of the screen.
@@ -85,7 +85,7 @@ class Renderer:
         snake_color: Color,
         fruit_color: Color,
         window_color: Color,
-    ) -> None:
+    ):
         """Renders the state of the Game.
 
         Handles the rendering of the Snake and the Fruit.
