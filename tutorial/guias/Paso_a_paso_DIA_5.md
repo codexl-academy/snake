@@ -147,6 +147,7 @@ El comentario nos dice que el score lo representaremos en la esquina superior iz
 Luego creamos un objeto `Font` usando el módulo `font` de Pygame. La clase `SysFont` de este módulo recibe la fuente y el tamaño de fuente y devuelve un objeto de tipo `Font`. Luego este objeto que se almacena en la variable `score_font`, lo usamos para crear la superficie del texto que vamos a escribir. El método `render` definido en la clase `Font` recibe el texto a representar, un parámetro de tipo *bool* que determina si queremos que el texto tenga bordes suaves y el color del texto. El llamado a esta función nos devuelve un objeto de tipo `Surface` que representa una región en nuestra pantalla que contiene el texto especificado.
 
 >**Nota :pen:** En la línea anterior usamos lo que se conoce como *string interpolation*. Cuando anteponemos la letra `f` antes de un string en Python, podemos incluir dentro del string código Python. En este caso queremos escribir *Score: x* donde *x* es el número que representa el score. Como dicho score está en la variable `score`, podemos escribir el string como: `f"Score: {score}"`. Al anteponer una `f` y encerrar la variable score entre llaves, obtenemos el resultado deseado.
+
 >**Nota :pen:** Toda la documentación sobre Pygame la puedes encontrar [aqui](https://www.pygame.org/docs/) (en inglés).
 
 Luego tenemos que obtener el rectángulo que contiene a la región definida anteriormente. Esto lo hacemos con la función `get_rect` del objeto `Surface`. Por último usamos el método `blit` definido en el objeto `game_window` que pinta la superficie dentro del rectángulo.
@@ -186,6 +187,14 @@ for pos in snake_body:
 ```
 
 Por cada posición en la lista que representa el cuerpo de la serpiente, usamos el campo `draw` de Pygame para dibujar. Específicamente vamos a representar cada parte del cuerpo como un pequeño cuadrado de 10 píxeles de lado. Para ello usamos la función `rect` para pintar rectángulos, le pasamos la ventana del juego, el color, y un objeto de tipo `Rect` que está definido en Pygame. A este último objeto le debemos pasar la posición de la esquina superior izquierda, el ancho y el largo del rectángulo. De esta forma queda pintado nuestro pequeño cuadradito con el color deseado :snake:.
+
+```python
+pygame.draw.rect(
+    game_window,
+    fruit_color,
+    pygame.Rect(fruit_position[0], fruit_position[1], 10, 10),
+)
+```
 
 Por último, y de manera análoga, pintamos un pequeño cuadrado para representar la fruta. La única diferencia es que este cuadrado tendrá el color definido para la fruta.
 
