@@ -1,6 +1,6 @@
 # Paso a Paso: Día 5
 
-Hoy aprenderemos a usar Pygame para crear la interfaz de usuario de nuestro juego. La interfaz de usuario de un software es lo que ven y con lo que interactúan los usuarios de ese software. En nuestro caso, la interfaz sería una pantalla que mostrara los detalles del juego, la serpiente moviéndose, la fruta, los puntos que hemos alcanzado. Además esta interfaz debe mostrar cómo cambia el estado del juego bajo la interacción de los jugadores. Para el videojuego Snake esto quiere decir que se debe ver cómo la serpiente cambia de dirección cuando el usuario usa las flechas de su teclado. Hasta ahora todo ha sido muy abstracto, hemos hablado de posiciones, coordenadas, listas, etc. En el día de hoy exploraremos un nuevo mundo.
+Hoy aprenderemos a usar Pygame para crear la interfaz de usuario de nuestro juego. La interfaz de usuario de un software es lo que ven y con lo que interactúan los usuarios de ese software. En nuestro caso, la interfaz será una pantalla que mostrará los detalles del juego, la serpiente moviéndose, la fruta, los puntos que hemos alcanzado. Además esta interfaz debe mostrar cómo cambia el estado del juego bajo la interacción de los jugadores. Para el videojuego Snake esto quiere decir que se debe ver cómo la serpiente cambia de dirección cuando el usuario usa las flechas de su teclado. Hasta ahora todo ha sido muy abstracto, hemos hablado de posiciones, coordenadas, listas, etc. En el día de hoy exploraremos un nuevo mundo.
 
 Así que vamos a comenzar directamente escribiendo código. :nerd_face:
 
@@ -126,11 +126,13 @@ Aunque parezca mucho código no te preocupes, entenderlo va a ser mucho más fá
 
 Primeramente importamos algunas clases que ya conocemos como *Enum* y los tipos *List* y *Tuple*. Además importamos la biblioteca Pygame que contiene muchas funcionalidades que nos facilitarán representar nuestro juego en pantalla.
 
-Luego definimos un tipo enumerado `Color` para representar los colores que vamos a usar en nuestro juego. En este caso usaremos el blance (WHITE), negro (BLACK), rojo (RED) y verde (GREEN). A cada uno de estos colores le asignamos el código que nos da la clase `Color` de Pygame. Esta clase recibe los colores en formato RGB. Si quieres aprender los detalles sobre esta codificación de color consulta [este enlace](https://es.wikipedia.org/wiki/RGB).
+Luego definimos un tipo enumerado `Color` para representar los colores que vamos a usar en nuestro juego. En este caso usaremos el blanco (WHITE), negro (BLACK), rojo (RED) y verde (GREEN). A cada uno de estos colores le asignamos el código que nos da la clase `Color` de Pygame. Esta clase recibe los colores en formato RGB. Si quieres aprender los detalles sobre esta codificación de color consulta [este enlace](https://es.wikipedia.org/wiki/RGB).
 
-Luego definimos la clase `Redenrer`, que es la que se va a encargar de representar nuestro juego. Todas las funciones de la clase `Renderer` comienzan con `@staticmethod`. Este es un decorador incluido en Python para definir que una función puede ser llamada sin crear un objeto de la clase. Esto es algo que veremos en práctica el próximo día. Solamente para dar una explicación básica, recordemos que en el día anterior hicimos pruebas para la clase `Snake`. En esas pruebas creamos un objeto `snake` a partir de la clase haciendo `self.snake = Snake(position=(50, 50), direction=Direction.RIGHT, size=4)`. Luego podíamos llamar a las funciones de este objeto haciendo, por ejemplo, `self.snake.move()`. O sea, tuvimos que crear un objeto y luego llamar a la función de ese objeto. Cuando dentro de una clase una función se declara como `@staticmethod` no es necesario crear un objeto para usar esa función, sino que podemos simplemente hace `Renderer.render_score(...)`.
+Luego definimos la clase `Renderer`, que es la que se va a encargar de representar nuestro juego. Todas las funciones de la clase `Renderer` comienzan con `@staticmethod`. Este es un decorador incluido en Python para definir que una función puede ser llamada sin crear un objeto de la clase. Esto es algo que veremos en práctica el próximo día. Solamente para dar una explicación básica, recordemos que en el día anterior hicimos pruebas para la clase `Snake`. En esas pruebas creamos un objeto `snake` a partir de la clase haciendo `self.snake = Snake(position=(50, 50), direction=Direction.RIGHT, size=4)`. Luego podíamos llamar a las funciones de este objeto haciendo, por ejemplo, `self.snake.move()`. O sea, tuvimos que crear un objeto y luego llamar a la función de ese objeto. Cuando dentro de una clase una función se declara como `@staticmethod` no es necesario crear un objeto para usar esa función, sino que podemos simplemente hacer `Renderer.render_score(...)`.
 
 Como ya dijimos, vamos a ver esto en práctica en la próxima guía. Por ahora volvamos a nuestra clase `Renderer`.
+
+### Función `render_score`
 
 La primera función es `render_score`, que se encarga de representar nuestra puntuación durante el juego. Esta clase recibe varios parámetros:
 
@@ -151,6 +153,40 @@ Luego tenemos que obtener el rectángulo que contiene a la región definida ante
 
 ### Función `render_game_over`
 
-La siguiente función es la que representará la pantalla de *game over*. Esta es la pantalla que nos sale cuando perdemos en el juego :cry:. Como esta función recibe muchos parámetros, hemos decidido escribir un parámetro por línea. De otra forma acabaríamos con una línea tan extensa que no cabría en nuestra pantalla y tendríamos que usar la barra de scroll horizontal para leerla completamente.
+La siguiente función es la que representará la pantalla de *game over*. Esta es la pantalla que nos sale cuando perdemos en el juego :cry:. Como esta función recibe muchos parámetros, hemos decidido escribir un parámetro por línea. De otra forma acabaríamos con una línea tan extensa que no cabría en nuestra pantalla y tendríamos que usar la barra de scroll horizontal para leerla completamente. Los parámetros `score`, `game_window`, `color`, `font` y `font_size` representan lo mismo que en la función anterior. El parámetro `window_x` representa el ancho de la ventana del juego y el parámetro `window_y` la altura.
 
-Al terminar el juego saldrá en la pantalla un cartel rojo con la puntuación que hemos obtenido.
+Al terminar el juego, saldrá en la pantalla un cartel rojo con la puntuación que hemos obtenido. Las primeras tres líneas de código de esta función deben resultar familiares luego de analizar la función anterior. Estamos creando la fuente, la superficie y el rectángulo donde se dibujará nuestro cartel. Lo próximo que hacemos es establecer la posición del cartel. Vamos a hacer que el centro del borde superior se ubique a la mitad del ancho de la pantalla y a un cuarto de la altura del borde superior de la pantalla. Esto se hace modificando el campo `midtop` de nuestro rectángulo:
+
+```python
+game_over_rect.midtop = (window_x / 2, window_y / 4)
+```
+
+Le asignamos una tupla cuyo primer elemento es la coordenada horizontal y el segundo la coordenada vertical. El campo `midtop` contiene la posición del centro del borde superior del rectángulo. Al ser la primera coordenada la mitad del ancho y la segunda un cuarto del alto, ubicamos el rectángulo en la posición deseada.
+
+Por último usamos la función `blit` como en el caso anterior y luego la función `flip` del módulo `display` que provoca que lo que estaba anteriormente en pantalla se borre y en su lugar se represente lo que acabamos de dibujar.
+
+### Función `render_game_state`
+
+Hasta ahora hemos visto cómo mostrar aspectos del juego, pero es en esta función donde mostramos el juego en sí mismo. Representamos la serpiente y la fruta en su estado actual. La lista de parámetros en este caso cambia un poco:
+
+1. `snake_body`: Lista de tuplas con la posición de cada parte del cuerpo de la serpiente en el momento actual.
+2. `fruit_position`: Posición actual de la fruta.
+3. `game_window`: Exactamente igual que en las funciones anteriores.
+4. `snake_color`: Color de la serpiente.
+5. `fruit_color`: Color de la fruta.
+6. `window_color`: Color de la ventana donde se desarrolla el juego.
+
+Con todos estos parámetros vamos a representar nuestro juego. Lo primero es rellenar toda la ventana con el color deseado. Esto lo hacemos con la función `fill` de `game_window`. Luego pintamos cada parte del cuerpo de la serpiente:
+
+```python
+for pos in snake_body:
+    pygame.draw.rect(
+        game_window, snake_color, pygame.Rect(pos[0], pos[1], 10, 10)
+    )
+```
+
+Por cada posición en la lista que representa el cuerpo de la serpiente, usamos el campo `draw` de Pygame para dibujar. Específicamente vamos a representar cada parte del cuerpo como un pequeño cuadrado de 10 píxeles de lado. Para ello usamos la función `rect` para pintar rectángulos, le pasamos la ventana del juego, el color, y un objeto de tipo `Rect` que está definido en Pygame. A este último objeto le debemos pasar la posición de la esquina superior izquierda, el ancho y el largo del rectángulo. De esta forma queda pintado nuestro pequeño cuadradito con el color deseado :snake:.
+
+Por último, y de manera análoga, pintamos un pequeño cuadrado para representar la fruta. La única diferencia es que este cuadrado tendrá el color definido para la fruta.
+
+¡Y ya está! Hemos creado todo lo necesario para que quienes jueguen puedan visualizar todo lo que pasa y divertirse (que al final es lo que importa). En la siguiente guía agregaremos la última pieza de este rompecabezas. ¡Cada vez el final está más cerca!

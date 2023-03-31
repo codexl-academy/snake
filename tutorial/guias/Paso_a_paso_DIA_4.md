@@ -24,7 +24,11 @@ En este proyecto, aunque es un material introductorio, hemos querido incluir los
 
 Vamos a utilizar las herramientas que nos brinda Python para realizar pruebas automatizadas. En futuros tutoriales incluiremos usos más avanzados de la biblioteca `pytest`. Por ahora vamos a centrarnos en lo principal: escribir pruebas para nuestro código.
 
-En nuestro proyecto, dentro del directorio `tests`, vamos a agregar los archivos `test_fruit.py` y `test_snake.py`. Como debes estar pensando, en el archivo `test_fruit.py` incluiremos las pruebas para la clase `Fruit` mientras que en el `test_snake.py` probaremos la clase `Snake`. Veamos cómo se hace.
+En nuestro proyecto, dentro del directorio `tests`, vamos a agregar los archivos `test_fruit.py` y `test_snake.py`. Además debemos agregar una archivo vacío llamado `__init__.py`. Este archivo le indica al intérprete de Python que este directorio constituye un módulo separado en el proyecto y nos permite importar clases y funciones de nuestro código.
+
+>:warning: Es muy importante que incluyas el archivo `__init__.py` en el directorio `tests`. Y además que escribas su nombre de manera correcta, con dos guiones bajos al inicio y al final, tal y como escribimos la función `__init__` de las clases. Si no lo hacemos así, los ejemplos de hoy no funcionarán.
+
+Como debes estar pensando, en el archivo `test_fruit.py` incluiremos las pruebas para la clase `Fruit` mientras que en el `test_snake.py` probaremos la clase `Snake`. Veamos cómo se hace.
 
 ### Clase `Fruit`
 
