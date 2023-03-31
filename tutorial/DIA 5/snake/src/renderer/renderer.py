@@ -30,9 +30,7 @@ class Renderer:
     """Class that handles the rendering of the components and states of the Game."""
 
     @staticmethod
-    def render_score(
-        score: int, game_window, color: Color, font: str, font_size: int
-    ):
+    def render_score(score: int, game_window, color: Color, font: str, font_size: int):
         """Renders the score on the top left corner of the screen.
 
         Args:
