@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
 Hay, no obstante, una línea un poco extraña: `if __name__ == "__main__":`. Todo lo hacemos dentro de esta sentencia `if`. Esta es una línea que aparece muchísimo en los scripts de Python. Con esto queremos decir que todo el código dentro de este *if* se ejecuta cuando es el intérprete de Python quién está llamando directamente al archivo. Por ejemplo, nuestro archivo **game.py** dentro del módulo **game_state** está siendo importado en **main.py**. Por tanto, todo el código de **game.py** se ejecuta. Pero no estamos ejecutando directamente ese archivo, sino que lo estamos importando en otro archivo. Por otra parte, si **main.py** fuera importado desde un nuevo archivo, entonces todo el código dentro del *if* **no** sería ejecutado. Este código se ejecuta solamente cuando llamamos al script directamente desde el intérprete de Python.
 
-Para que ordenarle al intérprete ejecutar **main.py** vamos a abrir una terminal en el directorio **src** y escribimos:
+Para ordenarle al intérprete ejecutar **main.py** vamos a abrir una terminal en el directorio **src** y escribir:
 
 ```bash
 python main.py
