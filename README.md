@@ -8,15 +8,17 @@ Esta es una implementación simple del clásico juego de la Serpiente (Snake Gam
 
 - Python 3.x
 - Pygame 2.x
+- Pytest 7.x
 
 ---
 
 ## Instalación
 
 1. Clonar el repositorio o descargar el archivo zip y extraerlo.
-2. Abrir la terminal o línea de comandos y navegar hasta el directorio que contiene los archivos del juego.
+2. Abrir la terminal o línea de comandos y navegar hasta este directorio (**snake**).
 3. Instalar los paquetes requeridos ejecutando el siguiente comando: `pip install -r requirements.txt`
-4. Ejecutar el juego ejecutando el siguiente comando: `python src/main.py`
+4. Navegar en la terminal hasta el directorio **project**
+5. Ejecutar el juego con el siguiente comando: `python src/main.py`
 
 ---
 
@@ -37,9 +39,15 @@ Esta es una implementación simple del clásico juego de la Serpiente (Snake Gam
 
 ---
 
-## Documentación
+## Tutorial
 
-Consulte el directorio `doc` para acceder a la documentación.
+En el directorio **tutorial** se encuentran las guías para crear el videojuego en una semana. Los directorios **DIA X** contienen el estado del proyecto después de seguir la guía del día **X**. Las guías se encuentran en el directorio **guias**.
+
+### Aclaración importante
+
+Con estos tutoriales intentamos enseñar conocimientos intermedios y avanzados de Python. No obstante, creemos que el código y la curiosidad son los mejores maestros. Creemos que con dedicación se pueden obtener los conocimientos impartidos en tan sólo una semana, pero eso depende del tiempo que le dedique cada persona a analizar e investigar por su cuenta. Recomendamos que cada día se experimente con el código haciendo cambios y reproduciendo algunas partes para observar las consecuencias.
+
+Memorizar código no es la manera de aprender a programar. Por favor, evítalo. Prioriza la experimentación, la investigación y el análisis.
 
 ---
 
@@ -51,4 +59,4 @@ Este proyecto está bajo la Licencia MIT - ver el archivo `LICENSE` para más de
 
 ## Agradecimientos
 
-Este juego está basado en el clásico juego de la Serpiente (Snake Game) y fue creado utilizando la librería Pygame.
+Este juego está basado en el clásico juego de la Serpiente (Snake Game) y fue creado utilizando la biblioteca Pygame.
