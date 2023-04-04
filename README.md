@@ -51,6 +51,24 @@ Memorizar código no es la manera de aprender a programar. Por favor, evítalo. 
 
 ---
 
+## Enlaces
+
+Estos son enlaces relacionados con este tutorial y con otros recursos de CodeXL.
+
+- [Proyecto y tutorial en versión PDF](https://codexl.gumroad.com/l/jgokn)
+
+- [Proyecto y tutorial originales](https://github.com/codexl-academy/snake)
+
+- [Newsletter de CodeXL](https://codexl.substack.com)
+
+- [Otros cursos y proyectos](https://marketplace.codexlacademy.com)
+
+- [Blog](https://blog.codexlacademy.com)
+
+- [Sitio web oficial de CodeXL](https://codexlacademy.com)
+
+---
+
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo `LICENSE` para más detalles.
