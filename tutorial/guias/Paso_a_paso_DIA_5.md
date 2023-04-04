@@ -4,11 +4,11 @@ Hoy aprenderemos a usar Pygame para crear la interfaz de usuario de nuestro jueg
 
 Así que vamos a comenzar directamente escribiendo código. :nerd_face:
 
-## Archivo `renderer.py`
+## Archivo `render.py`
 
-Todo el control de la interfaz de usuario lo llevaremos a cabo en el archivo `renderer.py`. Copia el siguiente contenido en dicho archivo.
+Todo el control de la interfaz de usuario lo llevaremos a cabo en el archivo `render.py`. Copia el siguiente contenido en dicho archivo.
 
-Archivo **src/renderer/renderer.py**:
+Archivo **src/renderer/render.py**:
 
 ```python
 """Module that handles the rendering of the components and states of the game.
